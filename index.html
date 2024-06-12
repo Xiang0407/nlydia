@@ -23,7 +23,7 @@
             color: #f0f0f0;
             text-decoration: none;
             margin: 0 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文本阴影 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .hero {
             position: relative;
@@ -56,16 +56,16 @@
         .hero h1 {
             font-size: 4em;
             margin: 0;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* 添加文本阴影 */
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
         }
         .hero p {
-            font-size: 1.8em; /* 放大字体 */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加文本阴影 */
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         .hero a {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: rgba(51, 51, 51, 0.8); /* 使用半透明背景 */
+            background-color: rgba(51, 51, 51, 0.8);
             color: #f0f0f0;
             text-decoration: none;
             display: inline-block;
@@ -78,12 +78,12 @@
             z-index: 1;
         }
         .content h2 {
-            font-size: 2.5em; /* 放大字体 */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加文本阴影 */
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         .content p {
-            font-size: 1.5em; /* 放大字体 */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 添加文本阴影 */
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         .button {
             margin-top: 20px;
@@ -95,8 +95,8 @@
             border-radius: 25px;
         }
         .footer {
-            padding: 10px; /* 缩小版权栏 */
-            font-size: 0.75em; /* 缩小字体 */
+            padding: 10px;
+            font-size: 0.75em;
             text-align: center;
             background-color: #333;
         }
@@ -121,7 +121,7 @@
 
     <div class="hero" id="hero">
         <h1>NLYDIA</h1>
-<p>DO THE WORLD BEST GPU</p>
+        <p>DO THE WORLD BEST GPU</p>
         <a href="about.html">Learn More</a>
     </div>
 
@@ -131,18 +131,23 @@
         <div class="product">
             <a href="products.html" class="button">Learn Our Products</a>
         </div>
-        <a href="signup.html" class="button">Sign up</a>
+        <a href="signup.html" class="button" id="signUpBtn">Sign up</a>
     </div>
 
     <div class="spacer"></div>
-
     <div class="footer">
         © 2024 NLYDIA. All rights reserved.
         <p>Operators: Jared Lee</p>
         <p>Manufacturer: Xiang</p>
     </div>
+<script>
+        window.addEventListener('load', function() {
+            // 检查localStorage标记并隐藏“Sign up”按钮
+            if (localStorage.getItem('visitedFromA') === 'true') {
+                document.getElementById('signUpBtn').style.display = 'none';
+            }
+        });
 
-    <script>
         window.addEventListener('scroll', function() {
             var scrollPosition = window.scrollY || window.pageYOffset;
             var windowHeight = window.innerHeight;

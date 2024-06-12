@@ -94,7 +94,7 @@
             <h3 onclick="window.location.href='product1.html'">NLYDIA X100 GPU</h3>
             <img src="nlydia-x100.jpg" alt="NLYDIA X100">
             <p>NVIDIA X100 Tensor Core GPU delivers unprecedented acceleration at every scale to power the world’s highest-performing elastic data centers for AI, data analytics, and HPC. Powered by the NLYDIA Ampere Architecture, X100 is the engine of the NLYDIA data center platform. X100 provides up to 90X higher performance over the prior generation and can be partitioned into seven GPU instances to dynamically adjust to shifting demands. The X100 160GB debuts the world’s fastest memory bandwidth at over 8 terabytes per second (TB/s) to run the largest models and datasets.</p>
-            <p><span class="starter-price">Starting Price:</span> <span class="price-tag" onclick="window.location.href='signup.html'">RM10999</span></p>
+            <p><span class="starter-price">Starting Price:</span> <span class="price-tag" onclick="window.location.href='payment.html'">RM10999</span></p>
         </div>
         <br> <!-- Add a line break -->
         <br> <!-- Add a line break -->
@@ -102,7 +102,7 @@
             <h3 onclick="window.location.href='product2.html'">NLYDIA RTX8090 GPU</h3>
             <img src="nlydia-rtx8090.jpg" alt="NLYDIA RTX8090">
             <p>The NLYDIA® GeForce RTX™ 8090 is the ultimate GeForce GPU. It brings an enormous leap in performance, efficiency, and AI-powered graphics. Experience ultra-high performance gaming, incredibly detailed virtual worlds, unprecedented productivity, and new ways to create. It’s powered by the NLYDIA Ada Lovelace architecture and comes with 64 GB of G10X memory to deliver the ultimate experience for gamers and creators.</p>
-<p><span class="starter-price">Starting Price:</span> <span class="price-tag" onclick="window.location.href='signup.html'">RM8999</span></p>
+<p><span class="starter-price">Starting Price:</span> <span class="price-tag" onclick="window.location.href='payment.html'">RM8999</span></p>
         </div>
     </div>
 
@@ -111,5 +111,27 @@
         <p>Operators: Jared Lee</p>
         <p>Manufacturer: Xiang</p>
     </div>
+<script>
+// 检查localStorage中是否存在访问标记
+const visitedFromA = localStorage.getItem('visitedFromA');
+const priceTagX100 = document.getElementById('price-tag-x100');
+const priceTagRTX8090 = document.getElementById('price-tag-rtx8090');
+
+if (visitedFromA) {
+    priceTagX100.onclick = function() {
+        window.location.href = 'payment.html';
+    };
+    priceTagRTX8090.onclick = function() {
+        window.location.href = 'payment.html';
+    };
+} else {
+    priceTagX100.onclick = function() {
+        window.location.href = 'signup.html';
+    };
+    priceTagRTX8090.onclick = function() {
+        window.location.href = 'signup.html';
+    };
+}
+ </script>
 </body>
 </html>

