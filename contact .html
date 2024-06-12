@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - NLYDIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('hero-bg3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(51, 51, 51, 0.9);
+            width: 100%;
+            margin-top: 0; /* Remove margin */
+        }
+        .navbar .logo {
+            margin-left: 20px; /* Adjust this value to move the logo further right */
+        }
+        .navbar a {
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #ccc;
+        }
+        .content {
+            padding: 40px;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+        .contact-section {
+            background-color: rgba(51, 51, 51, 0.9);
+            padding: 40px 0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .contact-section h2 {
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            text-align: left;
+            flex-wrap: wrap;
+        }
+        .contact-info div {
+            flex: 1;
+            margin: 0 20px;
+            max-width: 300px;
+            color: #f0f0f0;
+            text-align: center;
+        }
+        .contact-info h3 {
+            color: #00ff00;
+            margin-bottom: 10px;
+        }
+        .form-container {
+            padding: 40px;
+            border-radius: 8px;
+            background-color: rgba(51, 51, 51, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .form-container h2 {
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container textarea {
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            background-color: #00ff00;
+            color: #1c1c1c;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .form-container input[type="submit"]:hover {
+            transform: scale(1.1);
+        }
+        .success-message {
+            display: none;
+            color: #00ff00;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .instagram-btn {
+            display: inline-block;
+            background-color: #405de6;
+            color: #fff;
+            padding: 8px 16px; /* Adjust button size */
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .instagram-btn:hover {
+            background-color: #5c7cfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+<div class="logo">NLYDIA</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="products.html">Products</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div>
+                    <h3>Address</h3>
+                    <p>Angel Island<br>Tiburon, CA 94920, USA</p>
+                </div>
+                <div>
+                    <h3>Phone</h3>
+                    <p>Operators/programmer/Developer: +60105227587<br>Manufacturer/agents: +60143655050</p>
+                </div>
+                <div>
+                    <h3>Email & Social Media</h3>
+                    <p>Request for Proposal:<br>xiaohaoerbi@gmail.com</p>
+                    <a class="instagram-btn" href="https://www.instagram.com/ja.lee07_?igsh=MWhiczVwZmYyeHdldQ==" target="_blank">Jared</a>
+                    <a class="instagram-btn" href="https://www.instagram.com/xiang0407_?igsh=MmY0NHpiYWc4OXFj" target="_blank">Xiang</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-container">
+            <h2>Message Us</h2>
+            <form id="contactForm">
+                <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+            <div id="successMessage" class="success-message">Message sent! Thanks for your feedback.</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 NLYDIA. All rights reserved.</p>
+        <p>Operators: Jared Lee Manufacturer: Xiang</p>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var firstName = document.getElementById('first_name').value;
+            var lastName = document.getElementById('last_name').value;
+            var email = document.getElementById('email').value;
+            var messageContent = document.getElementById('message').value;
+
+            var message = 'First Name: ' + firstName + '\n' +
+                          'Last Name: ' + lastName + '\n' +
+                          'Email: ' + email + '\n' +
+                          'Message: ' + messageContent;
+
+            var botToken = '7243508319:AAHcGPRAkx7dgyucfW2dSAgVuNdXFumLNVg';
+            var chatId1 = '1509235250';
+            var chatId2 = '825218850';
+            var url1 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId1 + '&text=' + encodeURIComponent(message);
+            var url2 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId2 + '&text=' + encodeURIComponent(message);
+
+            // Send message to the first user
+            fetch(url1)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('Message sent to first user successfully');
+                    } else {
+                        console.error('Error sending message to first user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message to first user:', error);
+                });
+
+            // Send message to the second user
+            fetch(url2)
+.then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('Message sent to second user successfully');
+                        document.getElementById('successMessage').style.display = 'block';
+                    } else {
+                        console.error('Error sending message to second user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message to second user:', error);
+                });
+        });
+    </script>
+</body>
+</html>
