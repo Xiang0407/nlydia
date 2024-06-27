@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About NLYDIA - NLYDIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #000000;
+        }
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;/
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            margin-bottom: 20px;
+        }
+        .navbar .logo {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #000000;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .navbar .links {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .navbar a {
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #666666;
+        }
+        .about-link {
+            font-weight: bold;
+            text-decoration: underline !important;
+        }
+        .content {
+            padding: 20px;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            margin-top: 20px;
+        }
+        .section {
+            padding: 20px;
+            margin-bottom: 40px;
+            border: 1px solid #000000;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #000000;
+            font-size: 24px;
+        }
+        .section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 10px;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .footer p a,
+        .footer p a:visited {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .button,
+        .map-button,
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 20px 0;
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-align: center;
+        }
+        .map-button {
+            background-color: #3366cc;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+            .navbar .logo {
+                font-size: 20px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .content {
+                padding: 10px;
+            }
+            .section {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .section h2 {
+                font-size: 20px;
+            }
+            .section p {
+                font-size: 14px;
+            }
+            .button,
+            .map-button,
+            .back-to-home {
+                padding: 10px 20px;
+                font-size: 14px;
+                margin: 15px 0;
+            }
+            .footer {
+                margin-top: 20px;
+            }
+        }
+
+        /* 暗色模式 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .navbar {
+                background-color: #1f1f1f;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .navbar .logo {
+                color: #ffffff;
+            }
+            .navbar a {
+                color: #ffffff;
+            }
+            .navbar a:hover {
+                color: #cccccc;
+            }
+            .content {
+                background-color: #1f1f1f;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            .section {
+                border: 1px solid #ffffff;
+            }
+            .section h2 {
+                color: #ffffff;
+            }
+            .section p {
+                color: #ffffff;
+            }
+            .footer {
+                background-color: #1f1f1f;
+                color: #ffffff;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .footer p a,
+            .footer p a:visited {
+                color: #ffffff;
+            }
+            .button,
+            .map-button,
+            .back-to-home {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            .button:hover,
+            .map-button:hover,
+            .back-to-home:hover {
+                background-color: #cccccc;
+            }
+            .map-button {
+                background-color: #3366cc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NLYDIA</div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html" class="about-link">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="section">
+            <h2>View Our Locations</h2>
+            <p>Angel Island, Tiburon, CA 94920, USA</p>
+            <a href="https://maps.app.goo.gl/8GMnubj19VRs7JV19" target="_blank" class="map-button">🌍 View Map</a>
+        </div>
+        <div class="section">
+            <h2>About NLYDIA</h2>
+            <p>NLYDIAIt is a website dedicated to creating the best service and transaction, with super wide business, high-end products, and self-developed products to serve customers.</p>
+        </div>
+        <div class="section">
+            <h2>History</h2>
+            <p>Our website was designed, discussed, and developed, and the first version was finally launched on 31.5.2024. After many updates, optimizations, transformations, and designs, it has now become a complete, smooth, and fully functional multi-business website.</p>
+        </div>
+        <div class="section">
+            <h2>Business, Products and Services</h2>
+            <p>We have high-end products and a very wide range of services, including:</p>
+            <ul>
+                <li>Tourism</li>
+                <li>Manufacturing</li>
+                <li>Heavy industry</li>
+                <li>Military industry</li>
+                <li>Commodity space rental</li>
+                <li>Marine</li>
+                <li>Aerospace</li>
+                <li>Aviation</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Vision and Development Goals</h2>
+            <p>At NLYDIA, we aspire to redefine industry standards and lead with innovation across a broad spectrum of sectors. We empower our teams to drive excellence, uphold environmental responsibility, and achieve industry leadership through creativity, collaboration, and uncompromising dedication to customer satisfaction.</p>
+        </div>
+        <div class="section">
+            <h2>Our Team</h2>
+            <p>In our compact yet dynamic team consisting of a skilled programmer(Jared) and dedicated service provider(Xiang), we harness our extensive technological expertise, robust systems, Artificial intelligence and deep knowledge to meticulously design, build, and craft the finest website experience. Despite our small size, we pride ourselves on our capability to deliver superior solutions across the spectrum of web development. Our combined strengths enable us to innovate with agility, ensuring that every aspect of our website, from functionality to user interface, embodies excellence.</p>
+        </div>
+        <div class="section">
+            <h2>Feature</h2>
+            <p>Our website features advanced technology integration and a robust backend developed by our Nlydia team. It offers intuitive navigation, detailed product showcases, and personalized services. With a user-friendly interface and dedicated customer support, we ensure seamless experiences that set new standards in service excellence.</p>
+        </div>
+    </div>
+    <div class="footer">
+        © 2024 NLYDIA. All rights reserved.
+        <p><a href="privacy.html" style="color: inherit;">Privacy Policy</a> | <a href="cookies.html" style="color: inherit;">Cookies Policy</a> | <a href="disclaimer.html" style="color: inherit;">Disclaimer</a></p>
+    </div>
+</body>
+</html>

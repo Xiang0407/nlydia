@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - NLYDIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* 浅灰色背景 */
+            color: #000000; /* 黑色文字 */
+        }
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff; /* 纯白色导航栏 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 浅阴影 */
+            z-index: 100; /* 提高层级 */
+            margin-bottom: 20px; /* 增加与内容的间距 */
+        }
+        .navbar .logo {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #000000;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .navbar .links {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .navbar a {
+            color: #000000; /* 黑色文字 */
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #666666; /* 深灰色悬停 */
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff; /* 纯白色底部 */
+            color: #000000;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 底部浅阴影 */
+        }
+        .footer p a,
+        .footer p a:visited {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .payment-options button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .payment-options button.touch-n-go {
+            background-color: #add8e6; /* 浅蓝色 */
+        }
+        .payment-options button.paypal {
+            background-color: #1e90ff; /* 深蓝色 */
+        }
+        .payment-options button.cash {
+            background-color: #32cd32; /* 绿色 */
+        }
+        .payment-form {
+            display: none;
+            flex-direction: column;
+        }
+        .payment-form input[type="text"],
+        .payment-form input[type="email"],
+        .payment-form input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            outline: none;
+        }
+        .payment-form input[type="submit"] {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .payment-form input[type="submit"]:hover {
+            background-color: #eeeeee;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            font-size: 16px;
+            color: #32cd32; /* 绿色文字 */
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+            .navbar .logo {
+                font-size: 20px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .footer {
+                margin-top: 20px;
+            }
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212; /* 深灰色背景 */
+                color: #ffffff; /* 白色文字 */
+            }
+            .navbar {
+                background-color: #1f1f1f; /* 深灰色导航栏 */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .navbar .logo {
+                color: #ffffff; /* 白色文字 */
+            }
+            .navbar a {
+                color: #ffffff; /* 白色文字 */
+            }
+            .navbar a:hover {
+                color: #cccccc; /* 浅灰色悬停 */
+            }
+            .footer {
+                background-color: #1f1f1f; /* 深灰色底部 */
+                color: #ffffff; /* 白色文字 */
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* 底部浅阴影 */
+            }
+            .footer p a,
+            .footer p a:visited {
+                color: #ffffff; /* 白色文字 */
+            }
+            .payment-form input[type="text"],
+            .payment-form input[type="email"],
+            .payment-form input[type="number"] {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            .payment-form input[type="submit"] {
+                background-color: #1f1f1f;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+            }
+            .payment-form input[type="submit"]:hover {
+                background-color: #555;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NLYDIA</div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Payment Options</h2>
+        <div class="payment-options">
+            <button class="touch-n-go" onclick="showPay1Image()">Touch 'n Go</button>
+            <button class="paypal" onclick="location.href='https://www.paypal.me/x1ang87'">PayPal</button>
+            <button class="cash" onclick="showCashForm()">Cash</button>
+        </div>
+        <img id="pay1Image" src="pay1.jpg" style="display:none; width:100%; margin-bottom:20px;">
+        <form id="cashForm" class="payment-form">
+            <input type="text" id="First_name" placeholder="First Name" required>
+            <input type="text" id="Last_name" placeholder="Last Name" required>
+            <input type="text" id="Contact" placeholder="Contact" required>
+            <input type="text" id="State" placeholder="State" required>
+            <input type="text" id="City" placeholder="City" required>
+            <input type="text" id="Amount" placeholder="Amount" required>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="successMessage" class="success-message">
+            Submitted, our team will contact you soon.
+        </div>
+    </div>
+    <div class="footer">
+        ©2024 NLYDIA. All rights reserved.
+        <p><a href="privacy.html" style="color: inherit;">Privacy Policy</a> | <a href="cookies.html" style="color: inherit;">Cookies Policy</a> | <a href="disclaimer.html" style="color: inherit;">Disclaimer</a></p>
+    </div>
+    <script>
+        function showPay1Image() {
+            document.getElementById('pay1Image').style.display = 'block';
+            document.getElementById('cashForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        function showCashForm() {
+            document.getElementById('cashForm').style.display = 'flex';
+            document.getElementById('pay1Image').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        document.getElementById('cashForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var firstName = document.getElementById('First_name').value;
+            var lastName = document.getElementById('Last_name').value;
+            var contact = document.getElementById('Contact').value;
+            var state = document.getElementById('State').value;
+            var city = document.getElementById('City').value;
+            var amount = document.getElementById('Amount').value;
+
+            var message = 'First Name: ' + firstName + '\n' +
+                        'Last Name: ' + lastName + '\n' +
+                        'Contact: ' + contact + '\n' +
+                        'State: ' + state + '\n' +
+                        'City: ' + city + '\n' +
+                        'Amount: ' + amount;
+
+            var botToken = '7243508319:AAHcGPRAkx7dgyucfW2dSAgVuNdXFumLNVg';
+            var chatId1 = '825218850';
+            var chatId2 = '1509235250';
+
+            var url1 = 'https://api.telegram.org/bot' + botToken + '/sendMessage';
+            var url2 = 'https://api.telegram.org/bot' + botToken + '/sendMessage';
+
+            var params1 = {
+                chat_id: chatId1,
+                text: message
+            };
+
+            var params2 = {
+                chat_id: chatId2,
+                text: message
+            };
+
+            fetch(url1, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params1)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log('Message sent to first user successfully');
+
+                    return fetch(url2, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(params2)
+                    });
+                } else {
+                    console.error('Error sending message to first user.');
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log('Message sent to second user successfully');
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('cashForm').reset();
+                } else {
+                    console.error('Error sending message to second user.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
