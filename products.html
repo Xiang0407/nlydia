@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products - NLYDIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #000000;
+        }
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            margin-bottom: 20px;
+        }
+        .navbar .logo {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #000000;
+            font-weight:600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .navbar .links {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .products-link {
+            font-weight: bold;
+            text-decoration: underline !important;
+        }
+        .navbar a {
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #666666;
+        }
+        .content {
+            padding: 20px;
+            text-align: left;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            margin-top: 20px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product {
+            flex: 1 1 calc(50% - 10px);
+            box-sizing: border-box;
+            border: 1px solid #000000;
+            padding: 10px;
+            margin: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product-price {
+            font-size: 16px;
+            color: #000000;
+            margin: 10px 0;
+            font-weight:700;
+        }
+        .product-description {
+            font-size: 14px;
+            margin: 10px 0 60px 0;
+            font-weight:600;
+        }
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #76b900;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #76b900;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .footer p a,
+        .footer p a:visited {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .navbar {
+                background-color: #1f1f1f;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .navbar .logo {
+                color: #ffffff;
+            }
+            .navbar a {
+                color: #ffffff;
+            }
+            .navbar a:hover {
+                color: #cccccc;
+            }
+            .content {
+                background-color: #1f1f1f;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            .product {
+                background-color: #2c2c2c;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+            }
+            .product-price {
+                color: #ffffff;
+            }
+            .footer {
+                background-color: #1f1f1f;
+                color: #ffffff;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .footer p a,
+            .footer p a:visited {
+                color: #ffffff;
+            }
+            .btn {
+                background-color: #76b900;
+                color: #ffffff;
+            }
+            .btn:hover {
+                background-color: #76b900;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+            .navbar .logo {
+                font-size: 20px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .content {
+                padding: 10px;
+            }
+            .product {
+                flex: 1 1 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NLYDIA</div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="products.html" class="products-link">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="products">
+            <div class="product">
+                <img src="image1.jpg" alt="Product 1">
+                <div class="product-name">NLYDIA-Cigarette before sex（hottest）</div>
+                <div class="product-description">Happier, Excited, Stronger, Healthier,"Relax and unwind.Pure enjoyment with every draw.".</div>
+                <div class="product-footer">
+                    <div class="product-price">myr38.00（cheapest）</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image2.jpg" alt="Product 2">
+                <div class="product-name">NLYDIA-Nlydia777</div>
+                <div class="product-description">with ten–abreast seating layout and has a typical 3-class capacity of 301 to 368 passengers, with a range of 9,700 to 15,840 km.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr14,136,007,500.00</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image3.jpg" alt="Product 3">
+                <div class="product-name">NLYDIA-Antarctic research stations</div>
+                <div class="product-description">Antarctic research stations support scientific exploration in extreme Antarctic conditions.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr80,000,000.00</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image4.jpg" alt="Product 4">
+                <div class="product-name">NLYDIA-Ohio-class submarine</div>
+                <div class="product-description">a nuclear-powered submarine used by the US Navy for strategic missions.Can carry 24 nuclear warhead</div>
+                <div class="product-footer">
+                    <div class="product-price">myr9,895,300,899.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image5.jpg" alt="Product 5">
+                <div class="product-name">NLYDIA-F35B</div>
+                <div class="product-description">It features vertical/short takeoff and landing capabilities, suitable for both carrier-based and land-based operations.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr612,560,999.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image6.jpg" alt="Product 6">
+                <div class="product-name">NLYDIA-Trip to Mars</div>
+                <div class="product-description">you can book a ride on the Starship, which is expected to be launched in 2025, but it depends on Space X.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr9,600,699.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image7.jpg" alt="Product 7">
+                <div class="product-name">NLYDIA-Falcon-9 rocket</div>
+                <div class="product-description">partially reusable medium-lift launch vehicle that can carry cargo and crew into Earth orbit.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr170,920,200.00</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image8.jpg" alt="Product 8">
+                <div class="product-name">NLYDIA-Premium Island</div>
+                <div class="product-description">located in the waters near Sipadan Island. It is currently completely uninhabited and has a land area of ​​7.3 acres.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr180,999,99.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image9.jpg" alt="Product 9">
+                <div class="product-name">NLYDIA-Amazon rainforest 30d trip</div>
+                <div class="product-description">Super cheap 30-day Amazon tour, explore nature and primitive societies, but we cannot guarantee your life or death.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr899,999.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image10.jpg" alt="Product 10">
+                <div class="product-name">NLYDIA-T90 main tank</div>
+                <div class="product-description">third-generation Russian main tank. It uses a 125 mm 2A46 smoothbore main gun, an upgraded engine, and gunner's thermal sight.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr23,560,999.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image11.jpg" alt="Product 11">
+                <div class="product-name">NLYDIA-International Space Station（ISS）</div>
+                <div class="product-description">The International Space Station (ISS) is an orbiting research lab built by multiple countries. It enables scientific experiments in microgravity.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr471,300,175,794.97</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image12.jpg" alt="Product 12">
+                <div class="product-name">NLYDIA-Luxurious cruise ship</div>
+                <div class="product-description">the world's most luxurious cruise ship, offering unparalleled suites, gourmet dining, and impeccable service.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr18,852,007,031.80</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image13.jpg" alt="Product 13">
+                <div class="product-name">NLYDIA-9 in 1 lotions</div>
+                <div class="product-description">Combines shampoo, conditioner, body wash, soap, lotion, shaving cream, toothpaste, detergent, and motor oil in one bottle for ultimate convenience.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr69.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image14.jpg" alt="Product 14">
+                <div class="product-name">NLYDIA-Nuclear warhead</div>
+                <div class="product-description">A nuclear weapon is an explosive device that derives its destructive force from nuclear reactions.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr900,000,000.00</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image15.jpg" alt="Product 15">
+                <div class="product-name">NLYDIA-Apache AH-64E helicopter</div>
+                <div class="product-description">is an Nlydia used twin-turboshaft attack helicopter with a tailwheel-type landing gear and a tandem cockpit for a crew of two.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr167,009,785.50</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image16.jpg" alt="Product 16">
+                <div class="product-name">NLYDIA-Pumpjack</div>
+                <div class="product-description">A pumpjack is the overground drive for a reciprocating piston pump in an oil well.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr100,000,00.00</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image17.jpg" alt="Product 17">
+                <div class="product-name">NLYDIA-Commercial space (a month)</div>
+                <div class="product-description">rent a commercial space and contact us to sell your products in our website.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr1.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="image17.jpg" alt="Product 18">
+                <div class="product-name">NLYDIA-Commercial space (a year)</div>
+                <div class="product-description">rent a commercial space and contact us to sell your products in our website.</div>
+                <div class="product-footer">
+                    <div class="product-price">myr10.99</div>
+                    <a href="payment.html" class="btn">Buy Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        ©2024 NLYDIA. All rights reserved.
+        <p><a href="privacy.html" style="color: inherit;">Privacy Policy</a> | <a href="cookies.html" style="color: inherit;">Cookies Policy</a> | <a href="disclaimer.html" style="color: inherit;">Disclaimer</a></p>
+    </div>
+</body>
+</html>

